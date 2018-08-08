@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "待办任务";
+    Layout = "~/Views/Shared/_Layout_Mobile.cshtml";
+}
+@*@{ if (ViewBag.CurrentUser != null)
+        {
+            <div class="list-group">
+                <a href="#" class="list-group-item active">
+                    <h4 class="list-group-item-heading">当前用户</h4>
+                    <p class="list-group-item-text">WxOpenId: @ViewBag.CurrentUser.WxOpenId</p>
+                    <p class="list-group-item-text">OrganizationPath: @ViewBag.CurrentUser.OrganizationPath</p>
+                    <p class="list-group-item-text">Account: @ViewBag.CurrentUser.Account</p>
+                    <p class="list-group-item-text">Name: @ViewBag.CurrentUser.Name</p>
+                </a>
+            </div>
+        }
+    }*@
+<div class="tasks">
+    <div class="list-group items">
+    </div>
+    @*<a class="create">
+        <i class="glyphicon glyphicon-plus-sign"></i>
+    </a>*@
+</div>
+@section scripts{
+    <script type="text/javascript">
+        var url = "/" + location.appForld + "/";
+        $('a.create').prop('href', url + 'safetyrecord/create/');
+        $(".navbar-nav >li:eq(0)").addClass('active');
+        ywl.ajax({
+            controller: 'Default',
+            action: 'CurrentUser',
+            //data: "name=John&location=Boston",
+            success: function (user) {
+                if (user == null) return;
+                ywl.ajax({
+                    processUrl: false,
+                    url: 'http://www.bjdflld.com/services/SafetyCheckRecord/?creator=' + user.Id,
+                    //data: "name=John&location=Boston",
+                    success: function (ret) {
+                        var items = $('.items');
+                        items.empty();
+                        if (ret.data.length == 0) {
+                            items.empty();
+                            $('<div style="position: fixed;top:50%;text-align:center;left: 50%;margin-left: -28px;margin-top: -56px;font-size: 20px;color: #ddd;">无数据</div>').appendTo(items);
+                        } else {
+                            for (var i = 0; i < ret.data.length; i++) {
+                                var data = ret.data[i];
+                                var createTime = new Date(data.CreateTime);
+                                var item = $('<a href="' + url + 'safetyrecord/details/' + data.Id + '" class="list-group-item">')
+                                    .appendTo(items);
+                                if (data.Attachments && data.Attachments.length > 0) {
+                                    var img_wrap = $('<div class="img-wrap">').appendTo(item);
+                                    var img = $('<img class="list-group-item-heading-img">');
+                                    img.prop('src', 'http://www.bjdflld.com/services/' + data.Attachments[0].Url.replace('~', ''));
+                                    img.appendTo(img_wrap);
+                                }
+                                var text_wrap = $('<div class="text-wrap">').appendTo(item);
+                                var content = data.Content;
+                                content = content.length > 28 ? content.substring(0, 28) : content;
+                                var head = $('<h4 class="list-group-item-heading">').text(content).appendTo(text_wrap);
+                                var text = $('<p class="list-group-item-text">').text(
+                                    '时间：' + createTime.format('yyyy/MM/dd') + ' 发现人：' + data.FinderName
+                                ).appendTo(text_wrap);
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+}

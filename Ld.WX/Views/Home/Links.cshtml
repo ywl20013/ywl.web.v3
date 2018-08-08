@@ -1,0 +1,154 @@
+﻿@{
+    ViewBag.Title = "工作台";
+    Layout = "~/Views/Shared/_Layout_Mobile.cshtml";
+}
+<div class="links">
+    <div class="module safetyrecords">
+        <h4>安全审核</h4>
+        <div class="row">
+            <a class="col-xs-3 text-center disabled create" href="/wx/safetyrecord/create/">
+                <div class="glyphicon color-muted glyphicon-file"></div>
+                <h5>创建</h5>
+            </a>
+            @*<div class="col-xs-3 text-center">
+                    <div class="glyphicon color-primary glyphicon-list"></div>
+                    <h5>待提交</h5>
+                </div>*@
+            <a class="col-xs-3 text-center submitted" href="/wx/safetyrecord/page/submitted">
+                <div class="glyphicon color-info glyphicon-flag"></div>
+                <h5>已提交</h5>
+            </a>
+            <a class="col-xs-3 text-center received" href="/wx/safetyrecord/page/received">
+                <div class="glyphicon color-warning glyphicon-thumbs-up"></div>
+                <h5>已接收</h5>
+            </a>
+            <a class="col-xs-3 text-center accepted" href="/wx/safetyrecord/page/accepted">
+                <div class="glyphicon color-success glyphicon-ok"></div>
+                <h5>已验收</h5>
+            </a>
+            <div class="col-xs-3 text-center search">
+                <div class="glyphicon color-warning glyphicon-search"></div>
+                <h5>查询</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="module">
+        <h4>缺陷管理</h4>
+        <div class="row">
+            <div class="col-xs-3 text-center disabled">
+                <div class="glyphicon color-muted glyphicon-search"></div>
+                <h5>查询</h5>
+            </div>
+            <div class="col-xs-3 text-center disabled">
+                <div class="glyphicon color-muted glyphicon-stats"></div>
+                <h5>统计</h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="module">
+        <h4>车辆管理</h4>
+        <div class="row">
+            <div class="col-xs-3 text-center disabled">
+                <div class="glyphicon color-muted glyphicon-th-large"></div>
+                <h5>用车申请</h5>
+            </div>
+            <div class="col-xs-3 text-center disabled">
+                <div class="glyphicon color-muted glyphicon-th-large"></div>
+                <h5>派车</h5>
+            </div>
+            <div class="col-xs-3 text-center disabled">
+                <div class="glyphicon color-muted glyphicon-th-large"></div>
+                <h5>车辆三检</h5>
+            </div>
+            <div class="col-xs-3 text-center disabled">
+                <div class="glyphicon color-muted glyphicon-th-large"></div>
+                <h5>加油</h5>
+            </div>
+            <div class="col-xs-3 text-center disabled">
+                <div class="glyphicon color-muted glyphicon-th-large"></div>
+                <h5>检修</h5>
+            </div>
+            <div class="col-xs-3 text-center disabled">
+                <div class="glyphicon color-muted glyphicon-th-large"></div>
+                <h5>保养</h5>
+            </div>
+            <div class="col-xs-3 text-center disabled">
+                <div class="glyphicon color-muted glyphicon-th-large"></div>
+                <h5>费用</h5>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section scripts{
+    <script>
+        var currentUser = @Html.Raw(ViewBag.CurrentUser.ToJson());
+    </script>
+
+    <script type="text/javascript">
+        var links = {
+            sc: {
+                create: {
+                    enabled: false,
+                    url: '/wx/safetyrecord/create/',
+                    title: '创建',
+                    icon: 'glyphicon color-muted glyphicon-file'
+                },
+                submitted: {
+                    enabled: false,
+                    url: '/wx/safetyrecord/page/submitted/',
+                    title: '已提交',
+                    icon: 'glyphicon color-info glyphicon-flag'
+                },
+                received: {
+                    enabled: false,
+                    url: '/wx/safetyrecord/page/received/',
+                    title: '已接收',
+                    icon: 'glyphicon color-warning glyphicon-thumbs-up'
+                },
+                accepted: {
+                    enabled: false,
+                    url: '/wx/safetyrecord/page/accepted/',
+                    title: '已验收',
+                    icon: 'glyphicon color-success glyphicon-ok'
+                },
+                search: {
+                    enabled: false,
+                    url: '/wx/safetyrecord/page/search/',
+                    title: '查询',
+                    icon: 'glyphicon color-warning glyphicon-search'
+                }
+            }
+        };
+        $(".navbar-nav >li:eq(1)").addClass('active');
+
+        $('a[href]').map(item => {
+            $(item).prop('href', $(item).prop('href') + location.search);
+        });
+
+        $('a').on('click', function () {
+            var $this = $(this);       
+            if ($this.hasClass('disabled')) event.preventDefault();
+        });
+        var showLinks = function () {
+            if (links.sc.create.enabled) $('.safetyrecords .create').removeClass('disabled');
+        };
+        $.ajax({
+            url: window.webServices + 'actions?uid=' + currentUser.Id,
+            success: function (ret) {
+                for (var i = 0; i < ret.data.length; i++) {
+                    var action = ret.data[i];
+                    if (action.Controller == 'SafetyCheckRecords') {
+                        if (action.Name == 'Create') {
+                            links.sc.create.enabled = true;
+                        }
+                    }
+                }
+                showLinks();
+            }
+        })
+    </script>
+}

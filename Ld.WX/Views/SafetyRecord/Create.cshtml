@@ -1,0 +1,83 @@
+﻿@{
+    ViewBag.Title = "创建安全审核";
+    Layout = "~/Views/Shared/_Layout_Mobile_Empty.cshtml";
+}
+<div class="create page">
+    <div class="modal fade mask" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-content">正在加载......</div>
+    </div>
+    @using (Html.BeginForm("Create", "SafetyRecord", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        <div id="sheet" style="display:none;">
+            <div class="form-group">
+                <div id="imgs">
+                </div>
+                <div class="plus">
+                    <div class="img-wrap img-thumbnail text-center" id="addImg">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="form-group">
+                <label for="content">问题描述</label>
+                <input class="form-control" id="content" name="content" placeholder="问题描述">
+            </div>
+            <div class="form-group">
+                <label for="subcate">安全审核子目录</label>
+                <select id="subcate" name="subcate" class="form-control">
+                    <option value="8">A类：人的行为</option>
+                    <option value="9">B类：工具和工艺设备</option>
+                    <option value="10">C类：人机工程</option>
+                    <option value="11">D类：规章制度</option>
+                    <option value="12">E类：作业环境和应急</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="breakRulesType">安全风险属性</label>
+                <select id="breakRulesType" name="breakRulesType" class="form-control">
+                    <option value="其他">其他</option>
+                    <option value="装置性违章">装置性违章</option>
+                    <option value="行为性违章">行为性违章</option>
+                    <option value="管理性违章">管理性违章</option>
+                    <option value="非生产类缺陷">非生产类缺陷</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="resp">整改责任人</label>
+                <div class="input-group resp">
+                    <input type="text" class="form-control" id="resp" name="resp" placeholder="整改责任人">
+                    <div class="input-group-addon">...</div>
+                </div>
+            </div>
+            <div class="form-group btn-checkbox">
+                <input type="hidden" name="isdanger" />
+                <label for="isdanger">是否隐患</label>
+                <div class="btn-group" role="group" aria-label="...">
+                    <button type="button" class="btn btn-default" data-value="隐患">是</button>
+                    <button type="button" class="btn btn-primary">否</button>
+                </div>
+            </div>
+        </div>
+        <div class="page-footer">
+            <a class="back"><i class="glyphicon glyphicon-chevron-left"></i></a>
+            <input type="submit" value="保存" class="btn btn-primary btn-save" />
+        </div>
+    }
+</div>
+<script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+
+@section scripts{
+
+    <script type="text/javascript">
+        var token = '@ViewBag.token';
+        var ticket = '@ViewBag.ticket';
+        var nonceStr = '@ViewBag.nonceStr';
+        var signature = '@ViewBag.signature';
+        var timestamp = '@ViewBag.timestamp';
+        var appId = '@ViewBag.appId';
+        var url = '@ViewBag.url';
+    </script>
+    <script src="~/Scripts/SafetyRecord/Common.js"></script>
+}

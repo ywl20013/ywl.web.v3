@@ -1,0 +1,24 @@
+﻿@{
+    ViewBag.Title = "我的";
+    Layout = "~/Views/Shared/_Layout_Mobile.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-12 text-center">
+        <img src="~/Content/headers/default.jpg" style="height:100px;border-radius:50%;" />
+        <h4>@(ViewBag.CurrentUser == null ? "" : ViewBag.CurrentUser.OrganizationPath)</h4>
+        <h4>@(ViewBag.CurrentUser == null ? "" : (ViewBag.CurrentUser.Name + "(" + ViewBag.CurrentUser.Account + ")"))</h4>
+    </div>
+</div>
+<hr />
+<div>
+    <div class="col-xs-12 text-center">
+        <a class="btn btn-danger" href="/wx/users/UnRegister">解除800工号绑定</a>
+    </div>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        $(".navbar-nav >li:eq(2)").addClass('active');
+    </script>
+}

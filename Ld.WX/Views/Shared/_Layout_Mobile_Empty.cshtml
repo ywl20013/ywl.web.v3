@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 移动办公平台</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/window")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script>
+
+        //页面按钮事件，屏蔽链接的默认动作
+        $(document).on('click', function (event) {
+            var $this = $(event.target);
+            if ($this.is('a.back') || $this.parents('a.back').length > 0) {
+                event.preventDefault();//屏蔽链接的默认动作
+                event.stopPropagation();
+                history.back();
+            }
+        });
+    </script>
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

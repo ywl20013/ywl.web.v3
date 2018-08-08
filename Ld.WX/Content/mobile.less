@@ -1,0 +1,466 @@
+﻿
+/*
+.container {
+    width: 1000px;
+    margin: 0 auto;
+}
+//如果文档宽度小于 1920px 像素则修改.container宽度
+@media screen and (max-width: 1920px) {
+    .container {
+        width: 1024px;
+    }
+}
+//如果文档宽度小于 1280px 像素则修改.container宽度
+@media screen and (max-width: 1280px) {
+    .container {
+        width: 1000px;
+    }
+}
+//如果文档宽度小于 1024 像素则修改.container宽度
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 980px;
+    }
+}
+*/
+//@default-color: #eee;
+@default-bg-color: #eee; // darken(@default-color,10%);
+@default-border-color: darken(@default-bg-color,10%);
+@default-text-color: #000;
+@default-text-active-color: #000; //基础 文本 颜色 激活状态 反转
+
+@default-text-inverse-color: #ddd; //基础 文本 颜色 反转
+@default-text-inverse-active-color: #fff; //基础 文本 颜色 激活状态 反转
+@default-bg-inverse-color: #244477; //基础 背景 颜色 反转
+@default-bg-inverse-active-color: darken(@default-bg-inverse-color,5%); //基础 背景 颜色 激活状态 反转
+@default-border-inverse-color: darken(@default-bg-inverse-color,10%);
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    background-color: @default-bg-color;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.body-content {
+    margin-bottom: 65px;
+}
+
+.fa {
+
+    &.fa-2 {
+        font-size: 2em;
+    }
+
+    &.fa-3 {
+        font-size: 3em;
+    }
+}
+
+.main-menu {
+    overflow: hidden;
+    background-color: @default-bg-color;
+
+    li {
+        > div {
+            display: none;
+            box-shadow: 0 1px 12px 0 rgba(0, 0, 0, .2);
+            border-radius: 0 0 4px 4px;
+            color: #444;
+            background-color: @default-bg-color;
+            z-index: 9999;
+
+            a {
+            }
+        }
+
+        &:hover > div {
+            display: block;
+        }
+
+        a {
+            &:hover {
+                background-color: darken(@default-bg-color,10%);
+                color: #ff7700;
+            }
+
+            display: inline-block;
+            color: #fff;
+            width: 56px;
+            height: 61px;
+            line-height: 61px;
+            text-align: center;
+            padding: 0 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+    }
+}
+
+.nav {
+    list-style: none;
+
+    > li {
+        float: left;
+        position: relative;
+        display: block;
+
+        > a {
+            position: relative;
+            display: block;
+            padding: 10px 15px;
+        }
+    }
+}
+
+.navbar {
+    box-sizing: border-box;
+    position: relative;
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+
+    .navbar-nav {
+        > li {
+            > a {
+                color: @default-text-color;
+
+                &:focus, &:hover {
+                    color: @default-text-active-color;
+                    background-color: @default-bg-color;
+                }
+            }
+
+            &.active {
+            }
+        }
+    }
+
+    .navbar-header {
+        .logo {
+            display: inline-block;
+            height: 50px;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        .title {
+            display: inline-block;
+            height: 50px;
+            line-height: 50px;
+            color: @default-text-inverse-color;
+            //color: #eeff00;
+            vertical-align: middle;
+            font-size: 1.5em;
+        }
+
+        .toolbar {
+            box-sizing: border-box;
+            display: inline-block;
+            vertical-align: middle;
+            height: 50px;
+            line-height: 50px;
+            padding: 0 11px;
+
+            .btn {
+                box-sizing: border-box;
+                display: inline-block;
+                padding: 4px;
+            }
+        }
+    }
+
+    &.navbar-inverse {
+        background-color: @default-bg-inverse-color;
+        border-color: @default-bg-inverse-color;
+
+        .navbar-nav {
+            float: left;
+            margin: 0;
+            padding: 0;
+
+            > li {
+                > a {
+                    color: @default-text-inverse-color;
+                    padding-top: 15px;
+                    padding-bottom: 15px;
+                    line-height: 20px;
+
+                    &:focus, &:hover {
+                        color: @default-text-inverse-active-color;
+                        background-color: @default-bg-inverse-color;
+                    }
+                }
+
+                &.active {
+                    > a {
+                        color: @default-text-inverse-active-color;
+                        background-color: @default-bg-inverse-active-color;
+                    }
+                }
+            }
+        }
+
+        .fa {
+            color: @default-text-inverse-color;
+        }
+    }
+
+    &.navbar-fixed-bottom {
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+        margin-bottom: 0;
+    }
+
+    &.navbar-fixed-top {
+        position: fixed;
+        width: 100%;
+        top: 0;
+        margin-top: 0;
+    }
+}
+
+.body-content {
+    &.container {
+        margin-top: 60px;
+    }
+}
+
+.panel {
+    .title {
+        text-align: center;
+        font-size: 2em;
+        -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+        box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    }
+}
+
+.card {
+    margin: 10px;
+    background-color: #fff;
+    border: 1px solid transparent;
+    border-color: @default-border-color;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+
+    .card-heading {
+        font-size: 1.1em;
+        font-weight: bold;
+        //background-color: @default-bg-color;
+        padding: 10px 15px 0 15px;
+        border-bottom: 1px solid transparent;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+    }
+
+    .card-body {
+        padding: 15px;
+        overflow: hidden;
+
+        .content {
+            text-align: center;
+            font-size: 1.5em;
+            padding: 0px;
+            padding-bottom: 10px;
+            margin: 0;
+            text-shadow: 1px 1px 3px rgba(1, 1, 1, 0.5);
+        }
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .card-table {
+        width: 100%;
+        max-width: 100%;
+        background-color: transparent;
+        border-spacing: 0;
+        border-collapse: collapse;
+
+        > thead > tr > th, > tbody > tr > td {
+            padding: 8px;
+            line-height: 1.42857143;
+            vertical-align: middle;
+            border-top: 1px solid #ddd;
+            text-align: left;
+        }
+
+        > thead > tr > th {
+            border-bottom: 2px solid #ddd;
+        }
+
+        > thead > tr:first-child > th {
+            border-top: 0;
+        }
+
+        > tbody > tr > td {
+            &.clicked {
+                background-color: @default-bg-color;
+            }
+        }
+    }
+
+    &.inverse {
+        .card-heading {
+            color: @default-text-inverse-color;
+            background-color: @default-bg-inverse-color;
+        }
+
+        .card-table {
+            > thead > tr > th, > tbody > tr > td {
+                border-color: @default-border-inverse-color;
+            }
+        }
+
+        border-color: @default-border-inverse-color;
+    }
+
+    &.collapsed {
+        .card-heading {
+            padding: 10px 15px;
+        }
+
+        .card-body {
+            height: 0;
+            padding: 0;
+        }
+    }
+}
+
+.list {
+    margin-top: 10px;
+    margin-bottom: 10px;
+
+    .item {
+        box-sizing: border-box;
+        padding: 5px 10px;
+        background-color: #fff;
+
+        .title, .subtitle {
+            padding-left: 55px;
+        }
+
+        &.image {
+            height: 60px;
+
+            img {
+                float: left;
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        &.logout {
+            color: #fff;
+            background-color: #ff0000;
+            text-align: center;
+        }
+
+        &.separator {
+            background-color: transparent;
+        }
+    }
+}
+
+.login {
+    &.mobile {
+        position: fixed;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        //background-color: @default-bg-inverse-color;
+        form {
+            display: table;
+            margin: 10px auto;
+
+            .group {
+                display: table-row;
+
+                label {
+                    display: table-cell;
+                    text-align: right;
+                    margin-bottom: 5px;
+                }
+
+                .input, input {
+                    box-sizing: border-box;
+                    display: table-cell;
+                    border-width: 1px;
+                    margin-bottom: 15px;
+                    padding: 8px 2px;
+                    width: 100%;
+                }
+
+                .btn {
+                    border-radius: 4px;
+                    padding: 10px 2px;
+                    color: #fff;
+                    text-align: center;
+                    font-size: 1.2em;
+                    font-weight: bold;
+                    cursor: pointer;
+                    background-color: @default-bg-inverse-color;
+                }
+
+                .checkbox {
+                    display: table-cell;
+                    padding-bottom: 5px;
+
+                    input[type="checkbox"] {
+                        position: relative;
+                        top: 3px;
+                        margin-left: 0;
+                    }
+                }
+
+                .error {
+                    color: red;
+                }
+            }
+        }
+    }
+}
+
+//如果文档宽度小于 425 像素则修改.container宽度
+@media screen and (max-width: 426px) {
+    .nav > li > a {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+//如果文档宽度小于 393 像素则修改.container宽度
+@media screen and (max-width: 394px) {
+    .nav > li > a {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+}
+//如果文档宽度小于 375 像素则修改.container宽度
+@media screen and (max-width: 376px) {
+    .nav > li > a {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+//如果文档宽度小于 320 像素则修改.container宽度
+@media screen and (max-width: 321px) {
+    body {
+        font-size: 1em;
+    }
+}

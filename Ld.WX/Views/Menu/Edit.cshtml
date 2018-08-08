@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "编辑菜单";
+    Layout = "~/Views/Shared/_Layout_Mobile_Empty.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    <textarea name="mi">@ViewBag.data</textarea>
+    <br />
+    <input type="submit" value="提交" />
+}

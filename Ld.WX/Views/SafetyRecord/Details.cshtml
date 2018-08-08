@@ -1,0 +1,256 @@
+﻿
+@{
+    ViewBag.Title = "单据详细信息";
+    Layout = "~/Views/Shared/_Layout_Mobile_Empty.cshtml";
+}
+
+<div class="page details">
+    <div class="page-header">
+        <h4>
+            <span class="Content">Example page header</span><br />
+            <small>时间:</small> <small class="CreateTime">Subtext for header</small>
+            <small>发现人:</small> <small class="FinderName">Subtext for header</small>
+        </h4>
+    </div>
+
+    <div class="group">
+        <div class="row">
+            <div class="col col-xs-12 col-md-12">
+                <span>任务编号：</span><span class="Code"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12 col-md-12">
+                <span>流程状态：</span><span class="FlowStatus"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12 col-md-12">
+                <span>发现人：</span><span class="FinderName"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12 col-md-12">
+                <span>发现部门：</span><span class="FindDepartmentName"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12 col-md-12">
+                <span>发现时间：</span><span class="FindTime"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12 col-md-12">
+                <span>预计完成时间：</span><span class="PlanFinishTime"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12 col-md-12">
+                <span>分类：</span><span class="SourceType"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12 col-md-12">
+                <span>子分类：</span><span class="SouceSubType"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12 col-md-12">
+                <span>执行部门：</span><span class="ResponsibleDepartmentName"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12 col-md-12">
+                <span>执行班组：</span><span class="ResponsibleClassName"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12 col-md-12">
+                <span>整改责任人：</span><span class="ResponsiblePersonName"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12 col-md-12">
+                <span>安全风险属性：</span><span class="BreakRulesType"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12 col-md-12">
+                <span>安全风险等级：</span><span class="DangerLevel"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12 col-md-12">
+                <span>是否隐患：</span><span class="DangerType"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12 col-md-12"><span>问题描述：</span><span class="Content"></span></div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12 col-md-12">
+                <span>防范和应急措施：</span><span class="Measures"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12 col-md-12">
+                <span>验收结果：</span><span class="Result"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col col-xs-12 col-md-12">
+                <span>发送到内网：</span><span class="Synced"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="group">
+        <div class="row">
+            <h4>改前附件</h4>
+            <div class="imgs before">
+                <div class="row">
+                    <div class="col col-xs-6 col-md-3">
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/100%x180" alt="100%x180" style="height: 180px; width: 100%; display: block;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTM0IiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDEzNCAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MTgwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTY0YTEwNjEyYTggdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNjRhMTA2MTJhOCI+PHJlY3Qgd2lkdGg9IjEzNCIgaGVpZ2h0PSIxODAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI0MS4wNTQ2ODc1IiB5PSI5NC41Ij4xMzR4MTgwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-holder-rendered="true">
+                        </a>
+                    </div>
+                    <div class="col col-xs-6 col-md-3">
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/100%x180" alt="100%x180" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTM0IiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDEzNCAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MTgwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTY0YTEwNjBiMGQgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNjRhMTA2MGIwZCI+PHJlY3Qgd2lkdGg9IjEzNCIgaGVpZ2h0PSIxODAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI0MS4wNTQ2ODc1IiB5PSI5NC41Ij4xMzR4MTgwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="group">
+        <div class="row">
+            <h4>改后附件</h4>
+            <div class="imgs after">
+                <div class="row">
+                    <div class="col col-xs-6 col-md-3">
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/100%x180" alt="100%x180" style="height: 180px; width: 100%; display: block;" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTM0IiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDEzNCAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MTgwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTY0YTEwNjEyYTggdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNjRhMTA2MTJhOCI+PHJlY3Qgd2lkdGg9IjEzNCIgaGVpZ2h0PSIxODAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI0MS4wNTQ2ODc1IiB5PSI5NC41Ij4xMzR4MTgwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-holder-rendered="true">
+                        </a>
+                    </div>
+                    <div class="col col-xs-6 col-md-3">
+                        <a href="#" class="thumbnail">
+                            <img data-src="holder.js/100%x180" alt="100%x180" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTM0IiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDEzNCAxODAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjwhLS0KU291cmNlIFVSTDogaG9sZGVyLmpzLzEwMCV4MTgwCkNyZWF0ZWQgd2l0aCBIb2xkZXIuanMgMi42LjAuCkxlYXJuIG1vcmUgYXQgaHR0cDovL2hvbGRlcmpzLmNvbQooYykgMjAxMi0yMDE1IEl2YW4gTWFsb3BpbnNreSAtIGh0dHA6Ly9pbXNreS5jbwotLT48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwhW0NEQVRBWyNob2xkZXJfMTY0YTEwNjBiMGQgdGV4dCB7IGZpbGw6I0FBQUFBQTtmb250LXdlaWdodDpib2xkO2ZvbnQtZmFtaWx5OkFyaWFsLCBIZWx2ZXRpY2EsIE9wZW4gU2Fucywgc2Fucy1zZXJpZiwgbW9ub3NwYWNlO2ZvbnQtc2l6ZToxMHB0IH0gXV0+PC9zdHlsZT48L2RlZnM+PGcgaWQ9ImhvbGRlcl8xNjRhMTA2MGIwZCI+PHJlY3Qgd2lkdGg9IjEzNCIgaGVpZ2h0PSIxODAiIGZpbGw9IiNFRUVFRUUiLz48Zz48dGV4dCB4PSI0MS4wNTQ2ODc1IiB5PSI5NC41Ij4xMzR4MTgwPC90ZXh0PjwvZz48L2c+PC9zdmc+" data-holder-rendered="true" style="height: 180px; width: 100%; display: block;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="group">
+        <div class="row chkhis">
+            <h4>审核历史</h4>
+            <div class="col col-xs-12">
+                <h5>贾风会<small>2018/3/22 8:30:17</small></h5>
+                <p>步骤:提交，结果:同意，下一步人员：范献民，意见：无；</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-footer">
+        <a class="back"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        <a class="btn btn-default btn-delete" style="display:none;">删除</a>
+        <a class="btn btn-primary btn-edit" style="display:none;">编辑</a>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        var Id = @ViewBag.Id;
+    </script>
+
+    @if (ViewBag.CurrentUser != null)
+    {
+        <script>
+            var currentUser = @Html.Raw(ViewBag.CurrentUser.ToJson());
+        </script>
+    }
+    else
+    {
+        <script>
+            var currentUser = {};
+        </script>
+    }
+
+    <script type="text/javascript">
+        ywl.ajax({
+            processUrl: false,
+            url: 'http://www.bjdflld.com/services/SafetyCheckRecord/' + Id,
+            //data: "name=John&location=Boston",
+            success: function (ret) {
+                var data = ret;
+
+                if (data.Creator == currentUser.Id && data.FlowStatus == "新创建") {
+                    $('.btn-edit').prop('href', '../edit/' + Id).show();
+                    $('.btn-delete').prop('href', '../delete/' + Id).show();
+                }
+
+                var createTime = new Date(data.CreateTime);
+                var findTime = new Date(data.FindTime);
+                var planFinishTime = new Date(data.PlanFinishTime);
+                $('.Code').text(data.Code);
+                $('.Content').text(data.Content);
+                var content = data.Content;
+                // content = content.length > 19 ? content.substring(0, 19) + '...' : content;
+                $('.page-header .Content').text(content);
+                $('.CreateTime').text(createTime.format('yyyy/MM/dd'));
+                $('.FindTime').text(findTime.format('yyyy/MM/dd'));
+                $('.PlanFinishTime').text(planFinishTime.format('yyyy/MM/dd'));
+                $('.FinderName').text(data.FinderName);
+                $('.FindDepartmentName').text(data.FindDepartmentName);
+                $('.FlowStatus').text(data.FlowStatus);
+                $('.ResponsibleDepartmentName').text(data.ResponsibleDepartmentName);
+                $('.ResponsibleClassName').text(data.ResponsibleClassName);
+                $('.ResponsiblePersonName').text(data.ResponsiblePersonName);
+
+                $('.BreakRulesType').text(data.BreakRulesType);
+                $('.DangerType').text(data.DangerType);
+                $('.DangerLevel').text(data.DangerLevel);
+                $('.Measures').text(data.Measures);
+                $('.Result').text(data.Result);
+                $('.SourceType').text('安全审核');
+                $('.SouceSubType').text(SAFETYCHECK.TYPES.getTextById(data.SouceSubType));
+                $('.Synced').text(data.Synced);
+
+
+                var imgsBefore = $('.imgs.before');
+                var imgsAfter = $('.imgs.after');
+                imgsBefore.empty();
+                imgsAfter.empty();
+                for (var i = 0; i < data.Attachments.length; i++) {
+                    var item = data.Attachments[i];
+                    var url = item.Url;
+                    url = 'http://www.bjdflld.com/services/' + url.replace('~', '');
+                    var link = $('<a href="' + url + '" class="thumbnail">')
+
+                    var img = $('<img style="height: 100px; display: block;" src="' + url + '">')
+                        .appendTo(link);
+                    if (item.Category == '改前') {
+                        link.appendTo(imgsBefore);
+                    }
+                    else {
+                        link.appendTo(imgsAfter);
+                    }
+                }
+                var chkhis = $('.chkhis');
+                chkhis.find('.col').remove();
+                for (var i = 0; i < data.CheckHistories.length; i++) {
+                    var item = data.CheckHistories[i];
+                    var div = $('<div>').appendTo(chkhis);
+                    $('<h5>' + item.CreatorName + '<small>2018/3/22 8:30:17</small></h5>').appendTo(div);
+                    $('<p>步骤:' + item.Name + '，结果:' + item.Result + '，下一步人员：' + item.NextStepManName + '</p>').appendTo(div);
+                    //$('<p>结果:' + item.Result + '</p>').appendTo(div);
+                    //$('<p>下一步人员：' + item.NextStepManName + '</p>').appendTo(div);
+                    $('<p>意见：' + item.Opinion + '</p>').appendTo(div);
+                }
+            }
+        });
+    </script>
+}

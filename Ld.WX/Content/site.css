@@ -1,0 +1,408 @@
+/*
+.container {
+    width: 1000px;
+    margin: 0 auto;
+}
+//如果文档宽度小于 1920px 像素则修改.container宽度
+@media screen and (max-width: 1920px) {
+    .container {
+        width: 1024px;
+    }
+}
+//如果文档宽度小于 1280px 像素则修改.container宽度
+@media screen and (max-width: 1280px) {
+    .container {
+        width: 1000px;
+    }
+}
+//如果文档宽度小于 1024 像素则修改.container宽度
+@media screen and (max-width: 1024px) {
+    .container {
+        width: 980px;
+    }
+}
+*/
+body {
+  padding-bottom: 51px;
+}
+/* Set padding to keep content from hitting the edges */
+.body-content {
+  padding-top: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+  white-space: normal;
+}
+/*
+    底部导航菜单
+*/
+.navbar {
+  border-width: 1px 0 0;
+  border-top-color: #9e9e9e;
+  background-color: #fff;
+}
+.navbar.navbar-inverse {
+  background-color: #244477;
+}
+.navbar.navbar-inverse .nav.navbar-nav > li.active > a {
+  background-color: #1e3963;
+}
+.navbar .container {
+  padding: 0;
+}
+.navbar .nav.navbar-nav {
+  margin: 0;
+}
+.navbar .nav.navbar-nav > li {
+  padding: 0;
+  float: left;
+}
+.navbar .nav.navbar-nav > li > a {
+  padding: 5px;
+  color: #9e9e9e;
+  font-size: 0.85em;
+}
+.navbar .nav.navbar-nav > li > a .glyphicon {
+  top: 2px;
+  margin-right: 2px;
+  font-size: 1.5em;
+}
+.navbar .nav.navbar-nav > li > a .glyphicon.glyphicon-th-large,
+.navbar .nav.navbar-nav > li > a .glyphicon.glyphicon-user {
+  padding-left: 3px;
+}
+.navbar .nav.navbar-nav > li.active > a {
+  color: #428bca;
+}
+.picker {
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  padding: 15px;
+}
+.picker .filter {
+  position: absolute;
+  padding-top: 15px;
+  top: 0;
+  left: 15px;
+  right: 15px;
+  background-color: #fff;
+  z-index: 1;
+}
+.picker .filter .form-group:last-child {
+  margin-bottom: 0;
+}
+.picker .list {
+  position: absolute;
+  height: 100%;
+  overflow: auto;
+  top: 0;
+  left: 15px;
+  right: 15px;
+  padding-top: 113px;
+  padding-bottom: 45px;
+  z-index: 0;
+}
+.picker .footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: right;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  padding: 2px;
+}
+.picker .footer .btn {
+  border-radius: 0;
+  padding: 8px 12px;
+  width: 100px;
+}
+.picker .footer .back {
+  float: left;
+  height: 38px;
+  line-height: 38px;
+  padding-left: 8px;
+  padding-right: 12px;
+}
+.tasks .list-group .list-group-item {
+  height: 82px;
+}
+.tasks .list-group .list-group-item h4,
+.tasks .list-group .list-group-item .h4 {
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tasks .list-group .list-group-item .img-wrap {
+  position: absolute;
+  width: 100px;
+  height: 62px;
+  overflow: hidden;
+}
+.tasks .list-group .list-group-item img {
+  width: 96px;
+  position: relative;
+}
+.tasks .list-group .list-group-item .text-wrap {
+  padding-left: 100px;
+}
+.tasks .list-group .list-group-item .list-group-item-text {
+  font-size: 0.8em;
+}
+.tasks > .create {
+  position: fixed;
+  bottom: 67px;
+  right: 20px;
+  font-size: 38px;
+  opacity: 0.65;
+  color: #428bca;
+  line-height: 1;
+}
+.tasks > .create:hover {
+  opacity: 1;
+}
+.tasks > .create .glyphicon {
+  top: 0;
+}
+.links .module h4,
+.links .module .h4 {
+  font-size: 16px;
+  font-weight: 600;
+}
+.links .module h5,
+.links .module .h5 {
+  font-size: 14px;
+  font-weight: 500;
+}
+.links a,
+.links a:hover,
+.links a:visited {
+  color: inherit;
+}
+.links a.disabled,
+.links div.disabled {
+  color: #aaa;
+}
+.links a.disabled .glyphicon,
+.links div.disabled .glyphicon {
+  background-color: #aaa;
+}
+.links .glyphicon {
+  font-size: 26px;
+  color: white;
+  padding: 5px 8px 10px 7px;
+  border: 1px solid;
+  border-radius: 5px;
+}
+.links .glyphicon.glyphicon-file:before {
+  margin-left: 2px;
+  margin-right: -2px;
+}
+.links .glyphicon.glyphicon-list {
+  padding-top: 3px;
+  padding-bottom: 12px;
+}
+.links .glyphicon.glyphicon-th-large {
+  padding: 5px 6px 10px 9px;
+}
+.links .glyphicon.color-muted {
+  background-color: #337ab7;
+}
+.links .glyphicon.color-primary {
+  background-color: #0089ff;
+}
+.links .glyphicon.color-success {
+  background-color: #5cb85c;
+}
+.links .glyphicon.color-info {
+  background-color: #00c5ff;
+}
+.links .glyphicon.color-warning {
+  background-color: #f0ad4e;
+}
+.links .glyphicon.color-danger {
+  background-color: #ff0700;
+}
+.links .module {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #e2e2e2;
+}
+.links .module:last-child {
+  border-bottom-width: 0;
+}
+.page h4,
+.page .h4 {
+  font-size: 16px;
+}
+.page h5,
+.page .h5 {
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+.page .page-header {
+  padding-bottom: 9px;
+  margin: 8px 0 8px;
+  border-bottom: 1px solid #eeeeee;
+}
+.page .page-header h4,
+.page .page-header .h4 {
+  font-size: 18px;
+}
+.page .page-header h4:nth-child(1),
+.page .page-header .h4:nth-child(1) {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+}
+.page .page-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: right;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  padding: 2px;
+}
+.page .page-footer .btn {
+  border-radius: 0;
+  padding: 8px 12px;
+  width: 100px;
+}
+.page .page-footer .back {
+  float: left;
+  height: 38px;
+  line-height: 38px;
+  padding-left: 8px;
+  padding-right: 12px;
+}
+.page .group {
+  padding: 0 15px;
+}
+.page .row {
+  margin-top: 5px;
+}
+.page .row .col-xs-6 {
+  padding-right: 7.5px;
+  padding-left: 7.5px;
+}
+.page .row .col-xs-6:first-child {
+  padding-left: 15px;
+}
+.page .row .col-xs-6:last-child {
+  padding-right: 15px;
+}
+.page .row .col-xs-12 {
+  white-space: nowrap;
+  overflow: hidden;
+}
+.page .row .col-xs-12 > span {
+  display: inline-block;
+}
+.page .row .col-xs-12 > span:nth-child(1) {
+  vertical-align: top;
+  color: #000;
+  width: 130px;
+  font-size: 100%;
+  font-weight: 500;
+  text-align: right;
+}
+.page .row .col-xs-12 > span:nth-child(2) {
+  white-space: normal;
+  padding-left: 130px;
+  position: relative;
+  left: -130px;
+}
+.page .imgs .img-wrap,
+.page #imgs .img-wrap {
+  float: left;
+  width: 100px;
+  height: 80px;
+  overflow: hidden;
+  margin-right: 4px;
+}
+.page .imgs .img-wrap > img,
+.page #imgs .img-wrap > img {
+  width: 90px;
+}
+.page .imgs .img-wrap > i,
+.page #imgs .img-wrap > i,
+.page .imgs .img-wrap > .btn,
+.page #imgs .img-wrap > .btn {
+  display: none;
+}
+.page .imgs .img-wrap.preview,
+.page #imgs .img-wrap.preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  z-index: 9999;
+  text-align: center;
+}
+.page .imgs .img-wrap.preview > img,
+.page #imgs .img-wrap.preview > img {
+  width: 100%;
+}
+.page .imgs .img-wrap.preview > i,
+.page #imgs .img-wrap.preview > i,
+.page .imgs .img-wrap.preview > .btn,
+.page #imgs .img-wrap.preview > .btn {
+  margin-top: 8px;
+  display: inline-block;
+  margin-right: 8px;
+}
+.page .plus .img-wrap {
+  float: left;
+  width: 100px;
+  height: 80px;
+  overflow: hidden;
+}
+.page .plus .img-wrap.img-thumbnail .glyphicon-plus {
+  font-size: 50px;
+  color: #ddd;
+  line-height: 55px;
+}
+.page .modal.mask .modal-content {
+  font-size: 1.2em;
+  font-weight: bold;
+  border-radius: 0;
+  padding: 15px;
+  text-align: center;
+  border-width: 0;
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+}
+/* 详细页面 */
+.details .imgs {
+  overflow: auto;
+  white-space: nowrap;
+}
+.details .imgs .thumbnail {
+  display: inline-block;
+}
+.details .chkhis div {
+  border-bottom: 1px solid #eee;
+}
+.details .chkhis div:last-child {
+  border-bottom-width: 0;
+}
+.details .chkhis div small {
+  margin-left: 3px;
+}
+.details .chkhis div p {
+  margin: 0 0 3px;
+}

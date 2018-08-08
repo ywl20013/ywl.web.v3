@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "已验收";
+    Layout = "~/Views/Shared/_Layout_Mobile_Empty.cshtml";
+}
+
+<div class="tasks page">
+    <div class="list-group items">
+    </div>
+    <div class="page-footer">
+        <a class="back"><i class="glyphicon glyphicon-chevron-left"></i></a>
+        @*<a class="btn btn-default btn-delete" style="display:none;">删除</a>
+            <a class="btn btn-primary btn-edit" style="display:none;">编辑</a>*@
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        var tag = 'accepted';
+    </script>
+    <script type="text/javascript">
+        ywl.ajax({
+            processUrl: false,
+            url: 'http://www.bjdflld.com/services/SafetyCheckRecord/?' + tag + '=true',
+            success: function (ret) {
+                var items = $('.items');
+                items.empty();
+                if (ret.data.length == 0) {
+                    $('<div style="position:relative;top:50%;text-align:center;">无数据</div>').appendTo('.items');
+                } else {
+                    for (var i = 0; i < ret.data.length; i++) {
+                        var data = ret.data[i];
+                        var createTime = new Date(data.CreateTime);
+                        var item = $('<a href="../details/' + data.Id + '" class="list-group-item">')
+                            .appendTo(items);
+                        if (data.Attachments && data.Attachments.length > 0) {
+                            var img_wrap = $('<div class="img-wrap">').appendTo(item);
+                            var img = $('<img class="list-group-item-heading-img">');
+                            img.prop('src', 'http://www.bjdflld.com/services/' + data.Attachments[0].Url.replace('~', ''));
+                            img.appendTo(img_wrap);
+                        }
+                        var text_wrap = $('<div class="text-wrap">').appendTo(item);
+                        var head = $('<h4 class="list-group-item-heading">').text(data.Content).appendTo(text_wrap);
+                        var text = $('<p class="list-group-item-text">').text(
+                            '时间：' + createTime.format('yyyy/MM/dd') + ' 发现人：' + data.FinderName
+                        ).appendTo(text_wrap);
+                    }
+                }
+            }
+        });
+    </script>
+}

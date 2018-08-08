@@ -1,0 +1,37 @@
+﻿@{
+    /**/
+
+    Layout = "~/Views/Shared/_Layout_Mobile_Empty.cshtml";
+    ViewBag.Title = "绑定工号";
+}
+<h2>绑定工号</h2>
+<h4>请输入您的800工号，以方便系统能够识别您的部门、班组、权限等信息。</h4>
+
+@using (Html.BeginForm("Register", "Users", "post"))
+{
+    if (System.Web.HttpContext.Current.Request["id"] != null)
+    {
+        <div class="form-group">
+            <p class="form-control-static text-muted">@ViewBag.OpenId</p>
+        </div>
+    }
+    if (System.Web.HttpContext.Current.Request["auth"] != "admin")
+    {
+        <div class="form-group">
+            <input type="text" name="account" class="form-control" placeholder="800工号" required autofocus>
+        </div>
+    }
+    else
+    {
+        <div class="form-group">
+            <input type="number" name="account" class="form-control" placeholder="800工号" required autofocus>
+        </div>
+    }
+    if (ViewBag.ErrorMsg != null)
+    {
+        <div class="form-group">
+            <p class="form-control-static text-danger">@ViewBag.ErrorMsg</p>
+        </div>
+    }
+    <button class="btn btn-lg btn-primary btn-block" type="submit">确定</button>
+}

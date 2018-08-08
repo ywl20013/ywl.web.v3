@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "链接";
+}
+@{ if (ViewBag.CurrentUser != null)
+    {
+        <div class="list-group">
+            <a href="#" class="list-group-item active">
+                <h4 class="list-group-item-heading">当前用户</h4>
+                <p class="list-group-item-text">WxOpenId: @ViewBag.CurrentUser.WxOpenId</p>
+                <p class="list-group-item-text">OrganizationPath: @ViewBag.CurrentUser.OrganizationPath</p>
+                <p class="list-group-item-text">Account: @ViewBag.CurrentUser.Account</p>
+                <p class="list-group-item-text">Name: @ViewBag.CurrentUser.Name</p>
+            </a>
+        </div>
+    }
+}
+<div class="list-group">
+    <a href="#" class="list-group-item active">
+        <h4 class="list-group-item-heading">List group item heading</h4>
+        <p class="list-group-item-text">...</p>
+    </a>
+    <a href="#" class="list-group-item list-group-item-success">
+        <h4 class="list-group-item-heading">List group item heading</h4>
+        <p class="list-group-item-text">...</p>
+    </a>
+    <a href="#" class="list-group-item list-group-item-info">
+        <h4 class="list-group-item-heading">List group item heading</h4>
+        <p class="list-group-item-text">...</p>
+    </a>
+    <a href="#" class="list-group-item list-group-item-warning">
+        <h4 class="list-group-item-heading">List group item heading</h4>
+        <p class="list-group-item-text">...</p>
+    </a>
+    <a href="#" class="list-group-item list-group-item-danger">
+        <h4 class="list-group-item-heading">List group item heading</h4>
+        <p class="list-group-item-text">...</p>
+    </a>
+</div>
+
+@section scripts{
+    <script type="text/javascript">
+        $(".navbar-nav >li:eq(0)").addClass('active');
+    </script>
+}

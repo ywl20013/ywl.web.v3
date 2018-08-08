@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - 移动办公平台</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-fixed-bottom">
+        <div class="container">
+
+            <ul class="nav navbar-nav row">
+            </ul>
+
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        @*<hr />
+            <footer>
+                <p>&copy; @DateTime.Now.Year - 我的 ASP.NET 应用程序</p>
+            </footer>*@
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/window")
+    @Scripts.Render("~/bundles/bootstrap")
+    @*<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.0.2/less.min.js"></script>*@
+    <script>
+        var links = [
+            {
+                href: '/wx/',
+                text: '待办任务',
+                class: 'glyphicon glyphicon-bell'
+            }, {
+                href: '/wx/home/links',
+                text: '工作台',
+                class: 'glyphicon glyphicon-th-large'
+            }, {
+                href: '/wx/home/me',
+                text: '我',
+                class: 'glyphicon glyphicon-user'
+            }
+        ];
+        var navbar = $(".navbar-nav");
+        navbar.empty();
+        links.map((item) => {
+            var li = $('<li class="col-xs-4 text-center">').on('click', _ => {
+                //this.siblings().removeClass('active');
+                //this.addClass('active');
+            }).appendTo(navbar);
+            var a = $('<a>').prop({ 'href': item.href + location.search })
+                .append('<i class="' + item.class + '"></i><br /><sapn>' + item.text + '</sapn>')
+                .appendTo(li);
+
+        });
+        //页面按钮事件，屏蔽链接的默认动作
+        $(document).on('click', function (event) {
+            var $this = $(event.target);
+            if ($this.is('a.back') || $this.parents('a.back').length > 0) {
+                event.preventDefault();//屏蔽链接的默认动作
+                event.stopPropagation();
+                history.back();
+            }
+        });
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

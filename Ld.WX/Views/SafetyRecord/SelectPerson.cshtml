@@ -1,0 +1,49 @@
+﻿
+@{
+    ViewBag.Title = "单据详细信息";
+    Layout = "~/Views/Shared/_Layout_Mobile_Empty.cshtml";
+}
+
+<div class="page select-person">
+    <div class="page-header">
+        <h4>
+            <span class="Content">选择人员</span><br />
+            @*<small>时间:</small> <small class="CreateTime">Subtext for header</small>
+            <small>发现人:</small> <small class="FinderName">Subtext for header</small>*@
+        </h4>
+    </div>
+
+    <div class="group">
+        <div class="row">
+            <div class="col col-xs-12 col-md-12">
+                <span>任务编号：</span><span class="Code"></span>
+            </div>
+        </div> 
+    </div> 
+
+    <div class="page-footer">
+        <a class="btn btn-primary btn-ok">确定</a>
+    </div>
+</div>
+
+@section scripts{
+    <script>
+        var Id = @ViewBag.Id;
+    </script>
+    <script type="text/javascript">
+        //ywl.ajax({
+        //    processUrl: false,
+        //    url: 'http://www.bjdflld.com/services/SafetyCheckRecord/' + Id,
+        //    //data: "name=John&location=Boston",
+        //    success: function (ret) {
+        //        var data = ret;
+         
+        //    }
+        //});
+
+        $('.btn-ok').on('click', function () {
+            window.opener.$('.resp input').val(123);
+            window.close();
+        });
+    </script>
+}
