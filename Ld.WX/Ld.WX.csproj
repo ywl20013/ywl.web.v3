@@ -276,7 +276,7 @@
       <Project>{aa6431e4-1edd-454f-bf84-6256a0429833}</Project>
       <Name>Ywl.Data.Entity</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Ywl.Web.Entity.Models\Ywl.Data.Entity.Models.csproj">
+    <ProjectReference Include="..\Ywl.Data.Entity.Models\Ywl.Data.Entity.Models.csproj">
       <Project>{75853AF7-26AD-4766-901C-B7C56C0ABAA6}</Project>
       <Name>Ywl.Data.Entity.Models</Name>
     </ProjectReference>
